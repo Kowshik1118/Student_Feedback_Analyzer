@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>🎓 Student Feedback Analyzer</h1>
+        <p>Analyze student feedback using simple Natural Language Processing</p>
+    </header>
+
+    <section class="card">
+        <h2>Enter Student Feedback</h2>
+        <textarea id="feedback" placeholder="Example: The teacher explains concepts very clearly and the laboratory sessions are excellent."></textarea>
+        <button id="analyzeBtn">🔍 Analyze Feedback</button>
+        <button id="clearBtn" class="clear">Clear</button>
+        <p id="status"></p>
+    </section>
+
+    <section id="resultSection" class="card hidden">
+        <h2>Analysis Result</h2>
+
+        <div class="sentiment-box">
+            <div>
+                <h3>Overall Sentiment</h3>
+                <div id="sentiment" class="sentiment">-</div>
+            </div>
+            <div>
+                <h3>Feedback Score</h3>
+                <div id="score" class="score">0</div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat"><h3 id="wordCount">0</h3><p>Total Words</p></div>
+            <div class="stat"><h3 id="positiveCount">0</h3><p>Positive Words</p></div>
+            <div class="stat"><h3 id="negativeCount">0</h3><p>Negative Words</p></div>
+            <div class="stat"><h3 id="keywordCount">0</h3><p>Keywords</p></div>
+        </div>
+
+        <h3>🔑 Important Keywords</h3>
+        <div id="keywords" class="keyword-container"></div>
+
+        <h3>😊 Positive Words</h3>
+        <div id="positiveWords" class="keyword-container"></div>
+
+        <h3>😟 Negative Words</h3>
+        <div id="negativeWords" class="keyword-container"></div>
+
+        <h3>💡 Suggestions</h3>
+        <ul id="suggestions"></ul>
+
+        <h3>📝 Original Feedback</h3>
+        <div id="originalFeedback" class="feedback-box"></div>
+    </section>
+
+    <section class="card">
+        <h2>📋 Feedback History</h2>
+        <div id="history"></div>
+    </section>
+
+    <footer>
+        <p>Student Feedback Analyzer | Python + Flask + NLP</p>
+    </footer>
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
